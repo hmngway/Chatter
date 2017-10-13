@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Chatter
 //
-//  Created by Harley on 10/12/17.
+//  Created on 10/12/17.
 //
 
 import Cocoa

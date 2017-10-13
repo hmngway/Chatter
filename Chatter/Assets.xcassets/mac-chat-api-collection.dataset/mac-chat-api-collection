@@ -1,0 +1,271 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Mac Chat API",
+		"_postman_id": "bcf67d49-c989-9d16-ce67-2bbeaef0e890",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Auth Register User",
+			"request": {
+				"url": "http://localhost:3005/v1/account/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"j@j.com\",\n\t\"password\": \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2. Auth Login User",
+			"request": {
+				"url": "http://localhost:3005/v1/account/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"j@j.com\",\n\t\"password\": \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3. Add User",
+			"request": {
+				"url": "http://localhost:3005/v1/user/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MGJiYmIwNWRkMDgzM2IzNmNmMThiMyIsImlhdCI6MTQ5Mzk0MTE4OCwiZXhwIjoxNTAxNzE3MTg4fQ.6Uw4gqeZcj1xpLfkm-zI3rfr5q11WvvgjGypCMlbc-E",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"JB\",\n\t\"email\": \"j@j.com\",\n\t\"avatarName\": \"dark5\",\n\t\"avatarColor\" : \"hexValue\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Find all users",
+			"request": {
+				"url": "http://localhost:3005/v1/user",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MGEyZDlkOTU2MGY3ZmRiZmFmMzY2OSIsImlhdCI6MTQ5MzgzOTY0MywiZXhwIjoxNTAxNjE1NjQzfQ.hODV8tdKV9lpkXVO2-aiPDAA7shBfDpMls6yfzzV4sI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jacob Luetzow\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Find  user by id",
+			"request": {
+				"url": "http://localhost:3005/v1/user/590a2f709560f7fdbfaf366a",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MGEyZDlkOTU2MGY3ZmRiZmFmMzY2OSIsImlhdCI6MTQ5MzgzOTY0MywiZXhwIjoxNTAxNjE1NjQzfQ.hODV8tdKV9lpkXVO2-aiPDAA7shBfDpMls6yfzzV4sI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jacob Luetzow\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update User by Id",
+			"request": {
+				"url": "http://localhost:3005/v1/user/5908ed3e1ce31e541a8e7567",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jacob Winner\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User by Id",
+			"request": {
+				"url": "http://localhost:3005/v1/user/5908ed3e1ce31e541a8e7567",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jacob Winner\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": " Auth Find Me",
+			"request": {
+				"url": "http://localhost:3005/v1/account/me",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MGJiYmIwNWRkMDgzM2IzNmNmMThiMyIsImlhdCI6MTQ5Mzk0MTE4OCwiZXhwIjoxNTAxNzE3MTg4fQ.6Uw4gqeZcj1xpLfkm-zI3rfr5q11WvvgjGypCMlbc-E",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"jacob@test.com\",\n\t\"password\": \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Find  user by email",
+			"request": {
+				"url": "http://localhost:3005/v1//user/byEmail/j@j.com",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MGEyZDlkOTU2MGY3ZmRiZmFmMzY2OSIsImlhdCI6MTQ5MzgzOTY0MywiZXhwIjoxNTAxNjE1NjQzfQ.hODV8tdKV9lpkXVO2-aiPDAA7shBfDpMls6yfzzV4sI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jacob Luetzow\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Channel",
+			"request": {
+				"url": "http://localhost:3005/v1/channel/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MGJiYmIwNWRkMDgzM2IzNmNmMThiMyIsImlhdCI6MTQ5Mzk0MTE4OCwiZXhwIjoxNTAxNzE3MTg4fQ.6Uw4gqeZcj1xpLfkm-zI3rfr5q11WvvgjGypCMlbc-E",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"random\",\n\t\"description\": \"this is the random channel, talk about whatevs!\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Find All Channels",
+			"request": {
+				"url": "http://localhost:3005/v1/channel",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MDkxMjFiMjQ3Nzg2NWQ0MjBiMWE2MSIsImlhdCI6MTQ5Mzc2ODQwNCwiZXhwIjoxNTAxNTQ0NDA0fQ.xHaLV2V9REec3WJwg1PfB4New6uiFSUhZpAUeGwdLW8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jacob Luetzow\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Find all messages for channel",
+			"request": {
+				"url": "http://localhost:3005/v1/message/byChannel/590a3b279560f7fdbfaf366b",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MDkxMjFiMjQ3Nzg2NWQ0MjBiMWE2MSIsImlhdCI6MTQ5Mzc2ODQwNCwiZXhwIjoxNTAxNTQ0NDA0fQ.xHaLV2V9REec3WJwg1PfB4New6uiFSUhZpAUeGwdLW8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jacob Luetzow\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
