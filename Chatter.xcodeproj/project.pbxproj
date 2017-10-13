@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B6582C301F917BD000FF2D80 /* NSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6582C2F1F917BD000FF2D80 /* NSButton.swift */; };
+		B6582C321F9186B000FF2D80 /* ClickBlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6582C311F9186B000FF2D80 /* ClickBlockingView.swift */; };
 		B6718A3E1F90539D00AD3793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6718A3D1F90539D00AD3793 /* AppDelegate.swift */; };
 		B6718A421F90539D00AD3793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6718A411F90539D00AD3793 /* Assets.xcassets */; };
 		B6718A451F90539D00AD3793 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6718A431F90539D00AD3793 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		B6582C2F1F917BD000FF2D80 /* NSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButton.swift; sourceTree = "<group>"; };
+		B6582C311F9186B000FF2D80 /* ClickBlockingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickBlockingView.swift; sourceTree = "<group>"; };
 		B6718A3A1F90539D00AD3793 /* Chatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6718A3D1F90539D00AD3793 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6718A411F90539D00AD3793 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		B6718A4E1F90550000AD3793 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B6582C311F9186B000FF2D80 /* ClickBlockingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				B6718A511F90553100AD3793 /* ToolbarVC.swift in Sources */,
 				B6718A531F90555100AD3793 /* ChannelVC.swift in Sources */,
 				B6718A3E1F90539D00AD3793 /* AppDelegate.swift in Sources */,
+				B6582C321F9186B000FF2D80 /* ClickBlockingView.swift in Sources */,
 				B6718A571F90565B00AD3793 /* MainWindowController.swift in Sources */,
 				B6718A5A1F90571A00AD3793 /* Constants.swift in Sources */,
 				B6582C301F917BD000FF2D80 /* NSButton.swift in Sources */,
