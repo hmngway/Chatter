@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B6582C301F917BD000FF2D80 /* NSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6582C2F1F917BD000FF2D80 /* NSButton.swift */; };
 		B6582C321F9186B000FF2D80 /* ClickBlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6582C311F9186B000FF2D80 /* ClickBlockingView.swift */; };
+		B6582C351F91908F00FF2D80 /* ModalLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6582C341F91908F00FF2D80 /* ModalLogin.xib */; };
+		B6582C371F9190C300FF2D80 /* ModalLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6582C361F9190C300FF2D80 /* ModalLogin.swift */; };
 		B6718A3E1F90539D00AD3793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6718A3D1F90539D00AD3793 /* AppDelegate.swift */; };
 		B6718A421F90539D00AD3793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6718A411F90539D00AD3793 /* Assets.xcassets */; };
 		B6718A451F90539D00AD3793 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6718A431F90539D00AD3793 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		B6582C2F1F917BD000FF2D80 /* NSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButton.swift; sourceTree = "<group>"; };
 		B6582C311F9186B000FF2D80 /* ClickBlockingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickBlockingView.swift; sourceTree = "<group>"; };
+		B6582C341F91908F00FF2D80 /* ModalLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalLogin.xib; sourceTree = "<group>"; };
+		B6582C361F9190C300FF2D80 /* ModalLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalLogin.swift; sourceTree = "<group>"; };
 		B6718A3A1F90539D00AD3793 /* Chatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6718A3D1F90539D00AD3793 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6718A411F90539D00AD3793 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6582C331F91907500FF2D80 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				B6582C341F91908F00FF2D80 /* ModalLogin.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
 		B6718A311F90539D00AD3793 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +77,7 @@
 		B6718A3C1F90539D00AD3793 /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
+				B6582C331F91907500FF2D80 /* Xibs */,
 				B6718A581F90570B00AD3793 /* Utilities */,
 				B6718A4F1F90550400AD3793 /* Model */,
 				B6718A4E1F90550000AD3793 /* View */,
@@ -93,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B6582C311F9186B000FF2D80 /* ClickBlockingView.swift */,
+				B6582C361F9190C300FF2D80 /* ModalLogin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6718A421F90539D00AD3793 /* Assets.xcassets in Resources */,
+				B6582C351F91908F00FF2D80 /* ModalLogin.xib in Resources */,
 				B6718A451F90539D00AD3793 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6718A551F90556400AD3793 /* ChatVC.swift in Sources */,
+				B6582C371F9190C300FF2D80 /* ModalLogin.swift in Sources */,
 				B6718A511F90553100AD3793 /* ToolbarVC.swift in Sources */,
 				B6718A531F90555100AD3793 /* ChannelVC.swift in Sources */,
 				B6718A3E1F90539D00AD3793 /* AppDelegate.swift in Sources */,
