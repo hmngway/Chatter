@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N3M-ZI-35P">
-                    <rect key="frame" x="137.5" y="76.5" width="200" height="147"/>
+                    <rect key="frame" x="137" y="76" width="200" height="147"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bZu-87-fcZ">
                             <rect key="frame" x="66" y="115" width="68" height="32"/>
@@ -142,7 +142,7 @@
                     </connections>
                 </button>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="j1T-a8-hRz">
-                    <rect key="frame" x="445" y="270" width="24" height="24"/>
+                    <rect key="frame" x="443" y="268" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="0ex-6d-cG0"/>
                         <constraint firstAttribute="width" constant="24" id="CnI-HL-jWJ"/>
@@ -159,8 +159,8 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gXi-SJ-IfE" secondAttribute="bottom" constant="20" id="1Tp-CT-M3r"/>
                 <constraint firstItem="N3M-ZI-35P" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Kqc-Wj-Eoo"/>
-                <constraint firstAttribute="trailing" secondItem="j1T-a8-hRz" secondAttribute="trailing" constant="6" id="aB7-oC-tbs"/>
-                <constraint firstItem="j1T-a8-hRz" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="6" id="cmq-Rh-dug"/>
+                <constraint firstAttribute="trailing" secondItem="j1T-a8-hRz" secondAttribute="trailing" constant="8" id="aB7-oC-tbs"/>
+                <constraint firstItem="j1T-a8-hRz" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="cmq-Rh-dug"/>
                 <constraint firstItem="gXi-SJ-IfE" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="jxG-tY-rIw"/>
                 <constraint firstItem="N3M-ZI-35P" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="kcD-x0-Gu8"/>
             </constraints>

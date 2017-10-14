@@ -4,18 +4,285 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ModalCreateAccount" customModule="Chatter" customModuleProvider="target">
             <connections>
+                <outlet property="chooseImageBtn" destination="tLA-aw-NX4" id="B9r-fk-R8y"/>
+                <outlet property="createAccountBtn" destination="x0K-wt-6Wz" id="CrN-ro-ghk"/>
+                <outlet property="emailText" destination="3M9-28-UVB" id="oEq-tG-nz2"/>
+                <outlet property="nameText" destination="D3o-Vn-zu0" id="1KD-aZ-Pqf"/>
+                <outlet property="passwordText" destination="Yip-uU-p64" id="8iw-n2-GgE"/>
+                <outlet property="profileImage" destination="bnA-L1-CSx" id="lNz-I5-Sda"/>
+                <outlet property="progressSpinner" destination="SVS-vs-3Ci" id="OPi-yg-POh"/>
+                <outlet property="stackView" destination="S9n-Qp-Oeb" id="1k6-me-JFv"/>
                 <outlet property="view" destination="c22-O7-iKe" id="IvH-jd-ghN"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="475" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="9fL-Fg-ncM">
+                    <rect key="frame" x="443" y="268" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="aM6-0X-vXT"/>
+                        <constraint firstAttribute="height" constant="24" id="qqR-bk-0T6"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="mac-loginClose" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="iGv-Tn-U1r">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="closeModalClicked:" target="-2" id="c5a-oj-nb3"/>
+                    </connections>
+                </button>
+                <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="SVS-vs-3Ci">
+                    <rect key="frame" x="221.5" y="134" width="32" height="32"/>
+                </progressIndicator>
+                <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="viF-Ii-jqb">
+                    <rect key="frame" x="331" y="12" width="44" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="fgh-rT-9Xt"/>
+                        <constraint firstAttribute="height" constant="22" id="ppH-MN-eRd"/>
+                    </constraints>
+                    <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </colorWell>
+                <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9n-Qp-Oeb">
+                    <rect key="frame" x="60" y="42" width="355" height="216"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8R0-CV-ddr">
+                            <rect key="frame" x="105" y="184" width="145" height="32"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Create Account" id="rHp-Yp-FFr">
+                                <font key="font" size="19" name="AvenirNext-Bold"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="30" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n50-lu-Tnf">
+                            <rect key="frame" x="0.0" y="0.0" width="355" height="164"/>
+                            <subviews>
+                                <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="35" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F4y-a8-xt9" userLabel="Create Stack">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="164"/>
+                                    <subviews>
+                                        <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xET-Bh-qYi" userLabel="Text Fields Stack View">
+                                            <rect key="frame" x="0.0" y="67" width="200" height="97"/>
+                                            <subviews>
+                                                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Hk-OM-mvT">
+                                                    <rect key="frame" x="0.0" y="74" width="200" height="23"/>
+                                                    <subviews>
+                                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D3o-Vn-zu0" userLabel="Name">
+                                                            <rect key="frame" x="-2" y="1" width="204" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="200" id="HB8-La-j3b"/>
+                                                                <constraint firstAttribute="height" constant="22" id="rrb-o8-yhy"/>
+                                                            </constraints>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="Name" id="FJX-Ef-VKS">
+                                                                <font key="font" size="13" name="AvenirNext-Regular"/>
+                                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <outlet property="nextKeyView" destination="3M9-28-UVB" id="gY2-sq-31q"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nKf-C6-TsK">
+                                                            <rect key="frame" x="0.0" y="-2" width="200" height="5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="200" id="qhq-3E-UKm"/>
+                                                            </constraints>
+                                                        </box>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJD-LZ-oux">
+                                                    <rect key="frame" x="0.0" y="37" width="200" height="23"/>
+                                                    <subviews>
+                                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3M9-28-UVB" userLabel="E-mail">
+                                                            <rect key="frame" x="-2" y="1" width="204" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="6Bf-FZ-K1E"/>
+                                                                <constraint firstAttribute="width" constant="200" id="u70-Cg-Udj"/>
+                                                            </constraints>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="E-mail" id="LCg-sE-4W7">
+                                                                <font key="font" size="13" name="AvenirNext-Regular"/>
+                                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <outlet property="nextKeyView" destination="Yip-uU-p64" id="20D-SM-jkW"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="xWr-tz-1H3">
+                                                            <rect key="frame" x="0.0" y="-2" width="200" height="5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="200" id="TOF-qO-B3f"/>
+                                                            </constraints>
+                                                        </box>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yuB-lA-Xdi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
+                                                    <subviews>
+                                                        <secureTextField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yip-uU-p64" userLabel="Password">
+                                                            <rect key="frame" x="-2" y="1" width="204" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="200" id="40d-6K-WEu"/>
+                                                                <constraint firstAttribute="height" constant="22" id="fS6-w8-zno"/>
+                                                            </constraints>
+                                                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="Password" usesSingleLineMode="YES" id="0hn-xP-osu">
+                                                                <font key="font" size="13" name="AvenirNext-Regular"/>
+                                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                <allowedInputSourceLocales>
+                                                                    <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                                </allowedInputSourceLocales>
+                                                            </secureTextFieldCell>
+                                                            <connections>
+                                                                <outlet property="nextKeyView" destination="D3o-Vn-zu0" id="kuP-7f-eut"/>
+                                                            </connections>
+                                                        </secureTextField>
+                                                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="NUH-mG-bSB">
+                                                            <rect key="frame" x="0.0" y="-2" width="200" height="5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="200" id="nrX-mN-xRc"/>
+                                                            </constraints>
+                                                        </box>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x0K-wt-6Wz">
+                                            <rect key="frame" x="37.5" y="0.0" width="125" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="125" id="MlG-3r-AdH"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="bevel" title="Create Account" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="fhF-sU-7at">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" size="13" name="AvenirNext-Regular"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="createAccountBtnClicked:" target="-2" id="zJ9-iS-8X5"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                                <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="26" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r5c-l9-8W2" userLabel="Image Stack">
+                                    <rect key="frame" x="230" y="0.0" width="125" height="158"/>
+                                    <subviews>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bnA-L1-CSx">
+                                            <rect key="frame" x="12.5" y="58" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="17Y-aL-Cr4"/>
+                                                <constraint firstAttribute="height" constant="100" id="vhe-Rt-2zV"/>
+                                            </constraints>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="profileDefault" id="WGa-B7-BWg"/>
+                                        </imageView>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tLA-aw-NX4">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="125" id="gSF-1P-65B"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="bevel" title="Choose Image" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="gBf-Ck-2Z9">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" size="13" name="AvenirNext-Regular"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="chooseImageBtnClicked:" target="-2" id="HSo-Am-5jW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="r5c-l9-8W2" secondAttribute="bottom" id="3nn-TR-3r3"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="viF-Ii-jqb" firstAttribute="centerX" secondItem="tLA-aw-NX4" secondAttribute="centerX" id="846-nN-Rk3"/>
+                <constraint firstItem="SVS-vs-3Ci" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="fUZ-W5-njE"/>
+                <constraint firstItem="SVS-vs-3Ci" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="fuD-Rv-FXD"/>
+                <constraint firstItem="viF-Ii-jqb" firstAttribute="top" secondItem="S9n-Qp-Oeb" secondAttribute="bottom" constant="8" id="meN-Kd-r7J"/>
+                <constraint firstAttribute="trailing" secondItem="9fL-Fg-ncM" secondAttribute="trailing" constant="8" id="rIa-4x-0hf"/>
+                <constraint firstItem="S9n-Qp-Oeb" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="tLl-GD-bvR"/>
+                <constraint firstItem="9fL-Fg-ncM" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="uxN-7k-Pub"/>
+                <constraint firstItem="S9n-Qp-Oeb" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="xb5-RJ-p7T"/>
+            </constraints>
         </customView>
     </objects>
+    <resources>
+        <image name="mac-loginClose" width="40" height="40"/>
+        <image name="profileDefault" width="100" height="100"/>
+    </resources>
 </document>
