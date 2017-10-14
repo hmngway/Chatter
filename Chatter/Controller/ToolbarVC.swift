@@ -32,8 +32,11 @@ class ToolbarVC: NSViewController {
     
     func setUpView() {
         
-        // Notification observer
+        // Notification observer for the modal
         NotificationCenter.default.addObserver(self, selector: #selector(ToolbarVC.presentModal(_:)), name: NOTIF_PRESENT_MODAL, object: nil)
+        
+        // Notification observer for the login modal close button
+        NotificationCenter.default.addObserver(self, selector: #selector(ToolbarVC.closeModalNotif(_:)), name: NOTIF_CLOSE_MODAL, object: nil)
         
         view.wantsLayer = true
         view.layer?.backgroundColor = chatGreen.cgColor
@@ -129,25 +132,42 @@ class ToolbarVC: NSViewController {
         }, completionHandler: nil)
     }
     
+    // Close the login modal with the close button
+    @objc func closeModalNotif(_ notif: Notification) {
+        
+        if let removeImmediately = notif.userInfo?[USER_INFO_REMOVE_IMMEDIATELY] as? Bool {
+            closeModal(removeImmediately)
+        } else {
+            closeModal()
+        }
+    }
+    
+    // Close a modal by clicking outside of it
     @objc func closeModalClick(_ recognizer: NSClickGestureRecognizer) {
         closeModal()
     }
     
-    func closeModal() {
-        NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = 0.5
-            modalBGView.animator().alphaValue = 0.0
-            modalView.animator().alphaValue = 0.0
-            self.view.layoutSubtreeIfNeeded()
-            
-        }, completionHandler: {
-            if self.modalBGView != nil {
-                self.modalBGView.removeFromSuperview()
-                self.modalBGView = nil
-            }
-            
+    func closeModal(_ removeImmediately: Bool = false) {
+        
+        if removeImmediately {
             self.modalView.removeFromSuperview()
-        })
+        } else {
+            NSAnimationContext.runAnimationGroup({ (context) in
+                context.duration = 0.5
+                modalBGView.animator().alphaValue = 0.0
+                modalView.animator().alphaValue = 0.0
+                self.view.layoutSubtreeIfNeeded()
+                
+            }, completionHandler: {
+                if self.modalBGView != nil {
+                    self.modalBGView.removeFromSuperview()
+                    self.modalBGView = nil
+                }
+                
+                self.modalView.removeFromSuperview()
+            })
+        }
+        
     }
     
 }
