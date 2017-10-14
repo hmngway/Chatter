@@ -9,6 +9,7 @@ import Cocoa
 
 enum ModalType {
     case logIn
+    case createAccount
 }
 
 class ToolbarVC: NSViewController {
@@ -84,36 +85,39 @@ class ToolbarVC: NSViewController {
             // Gesture recognizer for the modal
             let closeBackgroundClick = NSClickGestureRecognizer(target: self, action: #selector(ToolbarVC.closeModalClick(_:)))
             modalBGView.addGestureRecognizer(closeBackgroundClick)
-            
-            // Instantiate the XIB
-            guard let modalType = notif.userInfo?[USER_INFO_MODAL] as? ModalType else { return }
-            
-            switch modalType {
-            case ModalType.logIn:
-                modalView = ModalLogin()
-                modalWidth = 475
-                modalHeight = 300
-            }
-            
-            modalView.wantsLayer = true
-            
-            // XIB constraints will be added explicitly
-            modalView.translatesAutoresizingMaskIntoConstraints = false
-            
-            modalView.alphaValue = 0.0
-            
-            view.addSubview(modalView, positioned: .above, relativeTo: modalBGView)
-            
-            // Set the XIB constraints
-            let horizontalConstraint = modalView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            let verticalConstraint = modalView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            let widthConstraint = modalView.widthAnchor.constraint(equalToConstant: modalWidth)
-            let heightConstraint = modalView.heightAnchor.constraint(equalToConstant: modalHeight)
-            
-            // Activate the XIB constraints
-            NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
-            
         }
+        
+        // Instantiate the XIB
+        guard let modalType = notif.userInfo?[USER_INFO_MODAL] as? ModalType else { return }
+        
+        switch modalType {
+        case ModalType.logIn:
+            modalView = ModalLogin()
+            modalWidth = 475
+            modalHeight = 300
+        case ModalType.createAccount:
+            modalView = ModalCreateAccount()
+            modalWidth = 475
+            modalHeight = 300
+        }
+        
+        modalView.wantsLayer = true
+        
+        // XIB constraints will be added explicitly
+        modalView.translatesAutoresizingMaskIntoConstraints = false
+        
+        modalView.alphaValue = 0.0
+        
+        view.addSubview(modalView, positioned: .above, relativeTo: modalBGView)
+        
+        // Set the XIB constraints
+        let horizontalConstraint = modalView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        let verticalConstraint = modalView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        let widthConstraint = modalView.widthAnchor.constraint(equalToConstant: modalWidth)
+        let heightConstraint = modalView.heightAnchor.constraint(equalToConstant: modalHeight)
+        
+        // Activate the XIB constraints
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
         
         // Background animation
         NSAnimationContext.runAnimationGroup({ (context) in
