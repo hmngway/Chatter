@@ -39,6 +39,9 @@ class ToolbarVC: NSViewController {
         // Notification observer for the login modal close button
         NotificationCenter.default.addObserver(self, selector: #selector(ToolbarVC.closeModalNotif(_:)), name: NOTIF_CLOSE_MODAL, object: nil)
         
+        // Notification observer for user login/logout
+        NotificationCenter.default.addObserver(self, selector: #selector(ToolbarVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        
         view.wantsLayer = true
         view.layer?.backgroundColor = chatGreen.cgColor
         
@@ -172,6 +175,25 @@ class ToolbarVC: NSViewController {
             })
         }
         
+    }
+    
+    // Called when the user logs in and logs out
+    @objc func userDataDidChange(_ notif: Notification) {
+        if AuthService.instance.isLoggedIn {
+            loginLbl.stringValue = UserDataService.instance.name
+            loginImage.wantsLayer = true
+            loginImage.layer?.cornerRadius = 5
+            loginImage.layer?.borderColor = NSColor.white.cgColor
+            loginImage.layer?.borderWidth = 1
+            loginImage.image = NSImage(named: NSImage.Name(rawValue: UserDataService.instance.avatarName))
+            // TODO: Add avatar color
+        } else {
+            loginLbl.stringValue = "Login"
+            loginImage.wantsLayer = true
+            loginImage.layer?.borderWidth = 0
+            loginImage.image = NSImage(named: NSImage.Name(rawValue: "profileDefault"))
+            loginImage.layer?.backgroundColor = CGColor.clear
+        }
     }
     
 }

@@ -24,6 +24,9 @@ class ChatVC: NSViewController {
     
     override func viewWillAppear() {
         setUpView()
+        
+        // Notification observer for user login/logout
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
     }
     
     func setUpView() {
@@ -45,5 +48,13 @@ class ChatVC: NSViewController {
         
     }
     
+    // Called when the user logs in and logs out
+    @objc func userDataDidChange(_ notif: Notification) {
+        if AuthService.instance.isLoggedIn {
+            
+        } else {
+            
+        }
+    }
     
 }

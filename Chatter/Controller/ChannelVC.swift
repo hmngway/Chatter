@@ -20,6 +20,9 @@ class ChannelVC: NSViewController {
     
     override func viewWillAppear() {
         setUpView()
+        
+        // Notification observer for user login/logout
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
     }
     
     func setUpView() {
@@ -32,6 +35,15 @@ class ChannelVC: NSViewController {
     
     @IBAction func addChannelBtnClicked(_ sender: Any) {
         
+    }
+    
+    // Called when the user logs in and logs out
+    @objc func userDataDidChange(_ notif: Notification) {
+        if AuthService.instance.isLoggedIn {
+            userNameLbl.stringValue = UserDataService.instance.name
+        } else {
+            userNameLbl.stringValue = ""
+        }
     }
     
 }
