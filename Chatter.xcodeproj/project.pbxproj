@@ -23,6 +23,7 @@
 		B6718A571F90565B00AD3793 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6718A561F90565B00AD3793 /* MainWindowController.swift */; };
 		B6718A5A1F90571A00AD3793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6718A591F90571A00AD3793 /* Constants.swift */; };
 		B679AD8C1F92D0250068F5EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679AD8B1F92D0250068F5EF /* AuthService.swift */; };
+		B679AD8E1F92DB280068F5EF /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679AD8D1F92DB280068F5EF /* UserDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B6718A561F90565B00AD3793 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		B6718A591F90571A00AD3793 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B679AD8B1F92D0250068F5EF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B679AD8D1F92DB280068F5EF /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		BA0F1E00E9EC8E28AA8F6BA6 /* Pods_Chatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				B679AD8B1F92D0250068F5EF /* AuthService.swift */,
+				B679AD8D1F92DB280068F5EF /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				B6718A511F90553100AD3793 /* ToolbarVC.swift in Sources */,
 				B6718A531F90555100AD3793 /* ChannelVC.swift in Sources */,
 				B679AD8C1F92D0250068F5EF /* AuthService.swift in Sources */,
+				B679AD8E1F92DB280068F5EF /* UserDataService.swift in Sources */,
 				B6718A3E1F90539D00AD3793 /* AppDelegate.swift in Sources */,
 				B6582C321F9186B000FF2D80 /* ClickBlockingView.swift in Sources */,
 				B6718A571F90565B00AD3793 /* MainWindowController.swift in Sources */,
