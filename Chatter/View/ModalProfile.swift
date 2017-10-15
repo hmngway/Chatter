@@ -32,10 +32,15 @@ class ModalProfile: NSView {
         setUpView()
     }
     
-    @IBAction func closeModalClicked(_ sender: Any) {
-        
+    @IBAction func logoutBtnClicked(_ sender: Any) {
+        UserDataService.instance.logoutUser()
+        NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)
     }
     
+    @IBAction func closeModalClicked(_ sender: Any) {
+        NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)
+    }
     
     func setUpView () {
         self.view.frame = NSRect(x: 0, y: 0, width: 475, height: 300)

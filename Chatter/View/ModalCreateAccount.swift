@@ -41,6 +41,16 @@ class ModalCreateAccount: NSView {
     }
     
     @IBAction func createAccountBtnClicked(_ sender: Any) {
+        // Show the progress spinner
+        progressSpinner.isHidden = false
+        progressSpinner.startAnimation(nil)
+        
+        // Dim the view
+        stackView.alphaValue = 0.4
+        
+        // Disable the create account button
+        createAccountBtn.isEnabled = false
+        
         AuthService.instance.registerUser(email: emailText.stringValue, password: passwordText.stringValue) { (success) in
             
             if success {
@@ -49,6 +59,10 @@ class ModalCreateAccount: NSView {
                     // If login is successful, create the user
                     if success {
                         AuthService.instance.createUser(name: self.nameText.stringValue, email: self.emailText.stringValue, avatarName: "dark8", avatarColor: "", completion: { (success) in
+                            
+                            // Stop and hide the progress spinner
+                            self.progressSpinner.stopAnimation(nil)
+                            self.progressSpinner.isHidden = true
                             
                             // If user creation is successful, close the create account modal
                             NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)

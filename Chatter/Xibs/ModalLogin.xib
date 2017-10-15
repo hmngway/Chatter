@@ -12,6 +12,7 @@
                 <outlet property="createAccountBtn" destination="gXi-SJ-IfE" id="qXV-OT-LvO"/>
                 <outlet property="emailLoginBtn" destination="PSr-HN-tX4" id="jiu-aA-kEX"/>
                 <outlet property="passwordText" destination="84j-Jw-ZgF" id="fvO-Wh-g0s"/>
+                <outlet property="progressSpinner" destination="buR-aI-qTT" id="NeX-89-PLS"/>
                 <outlet property="stackView" destination="N3M-ZI-35P" id="Gtd-lk-w5e"/>
                 <outlet property="userNameText" destination="Uer-Jz-c8I" id="8Dw-us-X18"/>
                 <outlet property="view" destination="c22-O7-iKe" id="aFw-YY-utP"/>
@@ -76,7 +77,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="200" id="dk9-ay-O0s"/>
                                     </constraints>
-                                    <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="Password" usesSingleLineMode="YES" id="pH7-b8-Jrz">
+                                    <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" focusRingType="none" placeholderString="Password" usesSingleLineMode="YES" id="pH7-b8-Jrz">
                                         <font key="font" size="13" name="AvenirNext-Regular"/>
                                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -85,6 +86,7 @@
                                         </allowedInputSourceLocales>
                                     </secureTextFieldCell>
                                     <connections>
+                                        <action selector="enterPasswordSent:" target="-2" id="1eW-2U-Ncf"/>
                                         <outlet property="nextKeyView" destination="Uer-Jz-c8I" id="V7l-4U-Dj9"/>
                                     </connections>
                                 </secureTextField>
@@ -155,13 +157,18 @@
                         <action selector="closeModalClicked:" target="-2" id="RxN-rX-eVc"/>
                     </connections>
                 </button>
+                <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="buR-aI-qTT">
+                    <rect key="frame" x="221.5" y="134" width="32" height="32"/>
+                </progressIndicator>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gXi-SJ-IfE" secondAttribute="bottom" constant="20" id="1Tp-CT-M3r"/>
                 <constraint firstItem="N3M-ZI-35P" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Kqc-Wj-Eoo"/>
+                <constraint firstItem="buR-aI-qTT" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="O9Y-9S-nmh"/>
                 <constraint firstAttribute="trailing" secondItem="j1T-a8-hRz" secondAttribute="trailing" constant="8" id="aB7-oC-tbs"/>
                 <constraint firstItem="j1T-a8-hRz" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="cmq-Rh-dug"/>
                 <constraint firstItem="gXi-SJ-IfE" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="jxG-tY-rIw"/>
+                <constraint firstItem="buR-aI-qTT" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="k0a-qC-U2R"/>
                 <constraint firstItem="N3M-ZI-35P" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="kcD-x0-Gu8"/>
             </constraints>
         </customView>

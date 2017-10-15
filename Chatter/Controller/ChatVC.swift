@@ -45,15 +45,22 @@ class ChatVC: NSViewController {
     }
     
     @IBAction func sendMessageBtnClicked(_ sender: Any) {
-        
+        if AuthService.instance.isLoggedIn {
+            // Send the message
+        } else {
+            let loginDict: [String: ModalType] = [USER_INFO_MODAL: ModalType.logIn]
+            NotificationCenter.default.post(name: NOTIF_PRESENT_MODAL, object: nil, userInfo: loginDict)
+        }
     }
     
     // Called when the user logs in and logs out
     @objc func userDataDidChange(_ notif: Notification) {
         if AuthService.instance.isLoggedIn {
-            
+            channelTitle.stringValue = "#general"
+            channelDescription.stringValue = "This is where we do the chats"
         } else {
-            
+            channelTitle.stringValue = "Please log in."
+            channelDescription.stringValue = ""
         }
     }
     
