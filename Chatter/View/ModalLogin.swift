@@ -38,7 +38,14 @@ class ModalLogin: NSView {
     }
     
     @IBAction func emailLoginBtnClicked(_ sender: Any) {
-        
+        AuthService.instance.loginUser(email: userNameText.stringValue, password: passwordText.stringValue) { (success) in
+            
+            if success {
+                NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)
+                Swift.print(AuthService.instance.authToken)
+                Swift.print(AuthService.instance.userEmail)
+            }
+        }
     }
     
     @IBAction func createAccountBtnClicked(_ sender: Any) {
