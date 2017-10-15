@@ -10,6 +10,7 @@ import Cocoa
 enum ModalType {
     case logIn
     case createAccount
+    case profile
 }
 
 class ToolbarVC: NSViewController {
@@ -52,8 +53,13 @@ class ToolbarVC: NSViewController {
     }
     
     @objc func openProfilePage(_ recognizer: NSClickGestureRecognizer) {
-        let loginDict: [String: ModalType] = [USER_INFO_MODAL: ModalType.logIn]
-        NotificationCenter.default.post(name: NOTIF_PRESENT_MODAL, object: nil, userInfo: loginDict)
+        if AuthService.instance.isLoggedIn {
+            let profileDict: [String: ModalType] = [USER_INFO_MODAL: ModalType.profile]
+            NotificationCenter.default.post(name: NOTIF_PRESENT_MODAL, object: nil, userInfo: profileDict)
+        } else {
+            let loginDict: [String: ModalType] = [USER_INFO_MODAL: ModalType.logIn]
+            NotificationCenter.default.post(name: NOTIF_PRESENT_MODAL, object: nil, userInfo: loginDict)
+        }
     }
     
     @objc func presentModal(_ notif: Notification) {
@@ -100,6 +106,10 @@ class ToolbarVC: NSViewController {
             modalHeight = 300
         case ModalType.createAccount:
             modalView = ModalCreateAccount()
+            modalWidth = 475
+            modalHeight = 300
+        case ModalType.profile:
+            modalView = ModalProfile()
             modalWidth = 475
             modalHeight = 300
         }

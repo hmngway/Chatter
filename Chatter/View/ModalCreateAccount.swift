@@ -48,7 +48,7 @@ class ModalCreateAccount: NSView {
                     
                     // If login is successful, create the user
                     if success {
-                        AuthService.instance.createUser(name: self.nameText.stringValue, email: self.emailText.stringValue, avatarName: "", avatarColor: "", completion: { (success) in
+                        AuthService.instance.createUser(name: self.nameText.stringValue, email: self.emailText.stringValue, avatarName: "dark8", avatarColor: "", completion: { (success) in
                             
                             // If user creation is successful, close the create account modal
                             NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)
