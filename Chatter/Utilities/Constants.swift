@@ -14,6 +14,7 @@ let BASE_URL = "https://mac-chatter.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
 let URL_LOGIN = "\(BASE_URL)account/login"
 let URL_USER_ADD = "\(BASE_URL)user/add"
+let URL_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
 
 // Colors
 let chatPurple = NSColor(calibratedRed: 0.30, green: 0.22, blue: 0.29, alpha: 1.00)
@@ -36,5 +37,10 @@ let USER_EMAIL = "userEmail"
 
 // Headers
 let HEADER = [
+    "Content-Type": "application/json; charset=utf-8"
+]
+
+let BEARER_HEADER = [
+    "Authorization": "Bearer \(AuthService.instance.authToken)",
     "Content-Type": "application/json; charset=utf-8"
 ]
