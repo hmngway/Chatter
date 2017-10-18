@@ -12,6 +12,7 @@
 		B611C61B1F940ACA008C4166 /* ModalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611C61A1F940ACA008C4166 /* ModalProfile.swift */; };
 		B61CB63C1F9273A500F76D6B /* ModalCreateAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61CB63B1F9273A500F76D6B /* ModalCreateAccount.xib */; };
 		B61CB63E1F9273C700F76D6B /* ModalCreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61CB63D1F9273C700F76D6B /* ModalCreateAccount.swift */; };
+		B6202AB11F97CA56007B6101 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6202AB01F97CA56007B6101 /* SocketService.swift */; };
 		B6582C301F917BD000FF2D80 /* NSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6582C2F1F917BD000FF2D80 /* NSButton.swift */; };
 		B6582C321F9186B000FF2D80 /* ClickBlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6582C311F9186B000FF2D80 /* ClickBlockingView.swift */; };
 		B6582C351F91908F00FF2D80 /* ModalLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6582C341F91908F00FF2D80 /* ModalLogin.xib */; };
@@ -35,6 +36,7 @@
 		B611C61A1F940ACA008C4166 /* ModalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalProfile.swift; sourceTree = "<group>"; };
 		B61CB63B1F9273A500F76D6B /* ModalCreateAccount.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalCreateAccount.xib; sourceTree = "<group>"; };
 		B61CB63D1F9273C700F76D6B /* ModalCreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalCreateAccount.swift; sourceTree = "<group>"; };
+		B6202AB01F97CA56007B6101 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		B6582C2F1F917BD000FF2D80 /* NSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButton.swift; sourceTree = "<group>"; };
 		B6582C311F9186B000FF2D80 /* ClickBlockingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickBlockingView.swift; sourceTree = "<group>"; };
 		B6582C341F91908F00FF2D80 /* ModalLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalLogin.xib; sourceTree = "<group>"; };
@@ -84,14 +86,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B6582C331F91907500FF2D80 /* Xibs */ = {
+		B6582C331F91907500FF2D80 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
 				B6582C341F91908F00FF2D80 /* ModalLogin.xib */,
 				B61CB63B1F9273A500F76D6B /* ModalCreateAccount.xib */,
 				B611C6181F940AA7008C4166 /* ModalProfile.xib */,
 			);
-			path = Xibs;
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		B6718A311F90539D00AD3793 = {
@@ -115,12 +117,12 @@
 		B6718A3C1F90539D00AD3793 /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
-				B679AD8A1F92D00B0068F5EF /* Services */,
-				B6582C331F91907500FF2D80 /* Xibs */,
-				B6718A581F90570B00AD3793 /* Utilities */,
 				B6718A4F1F90550400AD3793 /* Model */,
 				B6718A4E1F90550000AD3793 /* View */,
 				B6718A4D1F9054FB00AD3793 /* Controller */,
+				B679AD8A1F92D00B0068F5EF /* Services */,
+				B6718A581F90570B00AD3793 /* Utilities */,
+				B6582C331F91907500FF2D80 /* XIBs */,
 				B6718A3D1F90539D00AD3793 /* AppDelegate.swift */,
 				B6718A411F90539D00AD3793 /* Assets.xcassets */,
 				B6718A431F90539D00AD3793 /* Main.storyboard */,
@@ -173,6 +175,7 @@
 			children = (
 				B679AD8B1F92D0250068F5EF /* AuthService.swift */,
 				B679AD8D1F92DB280068F5EF /* UserDataService.swift */,
+				B6202AB01F97CA56007B6101 /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6202AB11F97CA56007B6101 /* SocketService.swift in Sources */,
 				B6718A551F90556400AD3793 /* ChatVC.swift in Sources */,
 				B61CB63E1F9273C700F76D6B /* ModalCreateAccount.swift in Sources */,
 				B6582C371F9190C300FF2D80 /* ModalLogin.swift in Sources */,
