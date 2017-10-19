@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ModalAddChannel" customModule="Chatter" customModuleProvider="target">
+            <connections>
+                <outlet property="channelDescriptionText" destination="1KT-Kc-pnR" id="rXf-iz-eb1"/>
+                <outlet property="channelNameText" destination="CUJ-1N-TMu" id="xbu-SA-Yj4"/>
+                <outlet property="createChannelBtn" destination="7ph-lS-HOR" id="sY9-db-Mhr"/>
+                <outlet property="view" destination="c22-O7-iKe" id="kdh-Rn-cxg"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="475" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="MV4-RP-pFC">
+                    <rect key="frame" x="443" y="268" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="DDH-gB-gnc"/>
+                        <constraint firstAttribute="width" constant="24" id="Vtf-Ad-ITU"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="mac-loginClose" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="BqY-UD-NK6">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="closeModalClicked:" target="-2" id="ghC-6n-qjJ"/>
+                    </connections>
+                </button>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="24" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11x-4f-ldK">
+                    <rect key="frame" x="137.5" y="68" width="200" height="164"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hP-Un-1dN">
+                            <rect key="frame" x="0.0" y="56" width="200" height="108"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rzm-0l-yQF">
+                                    <rect key="frame" x="38" y="76" width="124" height="32"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Add Channel" id="V1c-Qt-niD">
+                                        <font key="font" size="19" name="AvenirNext-Bold"/>
+                                        <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9eb-lR-Tkg">
+                                    <rect key="frame" x="0.0" y="38" width="200" height="24"/>
+                                    <subviews>
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CUJ-1N-TMu" userLabel="Channel Name">
+                                            <rect key="frame" x="-2" y="1" width="204" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="0ge-Sa-DLH"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="Channel Name" id="gGF-nc-AaT">
+                                                <font key="font" size="13" name="AvenirNext-Regular"/>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <outlet property="nextKeyView" destination="1KT-Kc-pnR" id="a44-8E-0VH"/>
+                                            </connections>
+                                        </textField>
+                                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="yWO-Z8-e7U">
+                                            <rect key="frame" x="0.0" y="-2" width="200" height="5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="rIU-9K-uRe"/>
+                                            </constraints>
+                                        </box>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0A-PP-W6m">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="24"/>
+                                    <subviews>
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1KT-Kc-pnR" userLabel="Channel Description">
+                                            <rect key="frame" x="-2" y="1" width="204" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="VLS-Dv-YWw"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="Channel Description" id="ZwC-EF-fPk">
+                                                <font key="font" size="13" name="AvenirNext-Regular"/>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <outlet property="nextKeyView" destination="CUJ-1N-TMu" id="Dej-B7-XRx"/>
+                                            </connections>
+                                        </textField>
+                                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nzU-EL-89e">
+                                            <rect key="frame" x="0.0" y="-2" width="200" height="5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="LUu-2y-Il2"/>
+                                            </constraints>
+                                        </box>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7ph-lS-HOR">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="Yb0-b0-bsP"/>
+                            </constraints>
+                            <buttonCell key="cell" type="bevel" title="Create Channel" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="Xwi-Wm-K2v">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" size="13" name="AvenirNext-Regular"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="createChannelBtnClicked:" target="-2" id="0Y5-Ex-TxC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="RSD-0Q-FjG">
+                    <rect key="frame" x="221.5" y="134" width="32" height="32"/>
+                </progressIndicator>
+            </subviews>
+            <constraints>
+                <constraint firstItem="RSD-0Q-FjG" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="D4u-mg-i1P"/>
+                <constraint firstAttribute="trailing" secondItem="MV4-RP-pFC" secondAttribute="trailing" constant="8" id="N9K-M1-Hul"/>
+                <constraint firstItem="11x-4f-ldK" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="dDB-yT-bh9"/>
+                <constraint firstItem="RSD-0Q-FjG" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="fL5-cu-P1Y"/>
+                <constraint firstItem="MV4-RP-pFC" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="mLg-hb-uUq"/>
+                <constraint firstItem="11x-4f-ldK" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="pCG-Ll-2W4"/>
+            </constraints>
+        </customView>
+    </objects>
+    <resources>
+        <image name="mac-loginClose" width="40" height="40"/>
+    </resources>
+</document>

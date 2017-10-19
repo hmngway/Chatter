@@ -10,6 +10,8 @@
 		AB2B40046B211833050E1A03 /* Pods_Chatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA0F1E00E9EC8E28AA8F6BA6 /* Pods_Chatter.framework */; };
 		B611C6191F940AA7008C4166 /* ModalProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = B611C6181F940AA7008C4166 /* ModalProfile.xib */; };
 		B611C61B1F940ACA008C4166 /* ModalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611C61A1F940ACA008C4166 /* ModalProfile.swift */; };
+		B6192AC31F991ABD008DC8D3 /* ModalAddChannel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6192AC21F991ABD008DC8D3 /* ModalAddChannel.xib */; };
+		B6192AC51F991AFF008DC8D3 /* ModalAddChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6192AC41F991AFF008DC8D3 /* ModalAddChannel.swift */; };
 		B61CB63C1F9273A500F76D6B /* ModalCreateAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61CB63B1F9273A500F76D6B /* ModalCreateAccount.xib */; };
 		B61CB63E1F9273C700F76D6B /* ModalCreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61CB63D1F9273C700F76D6B /* ModalCreateAccount.swift */; };
 		B6202AB11F97CA56007B6101 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6202AB01F97CA56007B6101 /* SocketService.swift */; };
@@ -34,6 +36,8 @@
 		866681875AABB6106BBC8FDB /* Pods-Chatter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatter/Pods-Chatter.release.xcconfig"; sourceTree = "<group>"; };
 		B611C6181F940AA7008C4166 /* ModalProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalProfile.xib; sourceTree = "<group>"; };
 		B611C61A1F940ACA008C4166 /* ModalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalProfile.swift; sourceTree = "<group>"; };
+		B6192AC21F991ABD008DC8D3 /* ModalAddChannel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalAddChannel.xib; sourceTree = "<group>"; };
+		B6192AC41F991AFF008DC8D3 /* ModalAddChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAddChannel.swift; sourceTree = "<group>"; };
 		B61CB63B1F9273A500F76D6B /* ModalCreateAccount.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalCreateAccount.xib; sourceTree = "<group>"; };
 		B61CB63D1F9273C700F76D6B /* ModalCreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalCreateAccount.swift; sourceTree = "<group>"; };
 		B6202AB01F97CA56007B6101 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 				B6582C341F91908F00FF2D80 /* ModalLogin.xib */,
 				B61CB63B1F9273A500F76D6B /* ModalCreateAccount.xib */,
 				B611C6181F940AA7008C4166 /* ModalProfile.xib */,
+				B6192AC21F991ABD008DC8D3 /* ModalAddChannel.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				B6582C361F9190C300FF2D80 /* ModalLogin.swift */,
 				B61CB63D1F9273C700F76D6B /* ModalCreateAccount.swift */,
 				B611C61A1F940ACA008C4166 /* ModalProfile.swift */,
+				B6192AC41F991AFF008DC8D3 /* ModalAddChannel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6718A421F90539D00AD3793 /* Assets.xcassets in Resources */,
+				B6192AC31F991ABD008DC8D3 /* ModalAddChannel.xib in Resources */,
 				B61CB63C1F9273A500F76D6B /* ModalCreateAccount.xib in Resources */,
 				B6582C351F91908F00FF2D80 /* ModalLogin.xib in Resources */,
 				B611C6191F940AA7008C4166 /* ModalProfile.xib in Resources */,
@@ -307,6 +314,7 @@
 				B6202AB11F97CA56007B6101 /* SocketService.swift in Sources */,
 				B6718A551F90556400AD3793 /* ChatVC.swift in Sources */,
 				B61CB63E1F9273C700F76D6B /* ModalCreateAccount.swift in Sources */,
+				B6192AC51F991AFF008DC8D3 /* ModalAddChannel.swift in Sources */,
 				B6582C371F9190C300FF2D80 /* ModalLogin.swift in Sources */,
 				B6718A511F90553100AD3793 /* ToolbarVC.swift in Sources */,
 				B6718A531F90555100AD3793 /* ChannelVC.swift in Sources */,
