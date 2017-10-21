@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class ModalCreateAccount: NSView {
+class ModalCreateAccount: NSView, NSPopoverDelegate {
 
     // Outlets
     @IBOutlet weak var view: NSView!
@@ -29,6 +29,9 @@ class ModalCreateAccount: NSView {
         super.init(frame: frameRect)
         Bundle.main.loadNibNamed(NSNib.Name(rawValue: "ModalCreateAccount"), owner: self, topLevelObjects: nil)
         self.addSubview(self.view)
+        
+        // Set the popover delegate
+        popover.delegate = self
     }
     
     required init?(coder decoder: NSCoder) {
@@ -39,6 +42,13 @@ class ModalCreateAccount: NSView {
         super.draw(dirtyRect)
         
         setUpView()
+    }
+    
+    func popoverDidClose(_ notification: Notification) {
+        if UserDataService.instance.avatarName != "" {
+            profileImage.image = NSImage(named: NSImage.Name(rawValue: UserDataService.instance.avatarName))
+            avatarName = UserDataService.instance.avatarName
+        }
     }
     
     @IBAction func closeModalClicked(_ sender: Any) {
@@ -63,7 +73,7 @@ class ModalCreateAccount: NSView {
                     
                     // If login is successful, create the user
                     if success {
-                        AuthService.instance.createUser(name: self.nameText.stringValue, email: self.emailText.stringValue, avatarName: "dark8", avatarColor: "", completion: { (success) in
+                        AuthService.instance.createUser(name: self.nameText.stringValue, email: self.emailText.stringValue, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             
                             // Stop and hide the progress spinner
                             self.progressSpinner.stopAnimation(nil)

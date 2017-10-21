@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AnimalCell" customModule="Chatter" customModuleProvider="target">
             <connections>
+                <outlet property="animalImage" destination="T3z-7a-zJg" id="dS2-C3-FNV"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -17,16 +18,20 @@
             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T3z-7a-zJg">
-                    <rect key="frame" x="26" y="26" width="48" height="48"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="dark8" id="3cd-Ud-Rbg"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T3z-7a-zJg">
+                    <rect key="frame" x="8" y="8" width="84" height="84"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="84" id="MMe-0s-yno"/>
+                        <constraint firstAttribute="width" constant="84" id="bTv-PA-JnD"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="3cd-Ud-Rbg"/>
                 </imageView>
             </subviews>
+            <constraints>
+                <constraint firstItem="T3z-7a-zJg" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="blD-op-H4Q"/>
+                <constraint firstItem="T3z-7a-zJg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="q0p-0C-wCF"/>
+            </constraints>
         </customView>
         <collectionViewItem id="RUy-oz-TSW" customClass="AnimalCell" customModule="Chatter" customModuleProvider="target"/>
     </objects>
-    <resources>
-        <image name="dark8" width="100" height="100"/>
-    </resources>
 </document>
