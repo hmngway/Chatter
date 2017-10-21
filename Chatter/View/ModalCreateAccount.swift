@@ -19,6 +19,7 @@ class ModalCreateAccount: NSView, NSPopoverDelegate {
     @IBOutlet weak var chooseImageBtn: NSButton!
     @IBOutlet weak var progressSpinner: NSProgressIndicator!
     @IBOutlet weak var stackView: NSStackView!
+    @IBOutlet weak var colorWell: NSColorWell!
     
     // Variables
     var avatarName = "profileDefault"
@@ -51,6 +52,17 @@ class ModalCreateAccount: NSView, NSPopoverDelegate {
         }
     }
     
+    @IBAction func colorPicked(_ sender: Any) {
+        profileImage.layer?.backgroundColor = colorWell.color.cgColor
+        
+        let color = colorWell.color.cgColor
+        
+        guard let colorArray = color.components?.description else { return }
+        
+        avatarColor = colorArray
+    }
+    
+    
     @IBAction func closeModalClicked(_ sender: Any) {
         NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)
     }
@@ -81,6 +93,8 @@ class ModalCreateAccount: NSView, NSPopoverDelegate {
                             
                             // If user creation is successful, close the create account modal
                             NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)
+                            
+                            NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                         })
                     }
                 })

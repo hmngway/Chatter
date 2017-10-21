@@ -52,7 +52,7 @@ class ModalProfile: NSView {
         profileImage.layer?.borderColor = NSColor.gray.cgColor
         profileImage.layer?.borderWidth = 3
         profileImage.image = NSImage(named: NSImage.Name(rawValue: UserDataService.instance.avatarName))
-        // TODO: Add the avatar background color
+        profileImage.layer?.backgroundColor = UserDataService.instance.returnCGColor(components: UserDataService.instance.avatarColor)
         
         // Set the logout button style
         logoutBtn.styleButtonText(button: logoutBtn, buttonName: "Logout", fontColor: .white, alignment: .center, font: AVENIR_REGULAR, size: 13.0)

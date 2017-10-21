@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ModalCreateAccount" customModule="Chatter" customModuleProvider="target">
             <connections>
                 <outlet property="chooseImageBtn" destination="tLA-aw-NX4" id="B9r-fk-R8y"/>
+                <outlet property="colorWell" destination="viF-Ii-jqb" id="8JM-om-Mol"/>
                 <outlet property="createAccountBtn" destination="x0K-wt-6Wz" id="CrN-ro-ghk"/>
                 <outlet property="emailText" destination="3M9-28-UVB" id="oEq-tG-nz2"/>
                 <outlet property="nameText" destination="D3o-Vn-zu0" id="1KD-aZ-Pqf"/>
@@ -41,7 +42,7 @@
                     </connections>
                 </button>
                 <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="SVS-vs-3Ci">
-                    <rect key="frame" x="221.5" y="134" width="32" height="32"/>
+                    <rect key="frame" x="221" y="134" width="32" height="32"/>
                 </progressIndicator>
                 <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="viF-Ii-jqb">
                     <rect key="frame" x="331" y="12" width="44" height="22"/>
@@ -50,6 +51,9 @@
                         <constraint firstAttribute="height" constant="22" id="ppH-MN-eRd"/>
                     </constraints>
                     <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="colorPicked:" target="-2" id="DMM-Qv-mAI"/>
+                    </connections>
                 </colorWell>
                 <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9n-Qp-Oeb">
                     <rect key="frame" x="60" y="42" width="355" height="216"/>

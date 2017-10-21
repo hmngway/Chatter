@@ -57,6 +57,47 @@ class UserDataService {
         }
     }
     
+    func returnCGColor(components: String) -> CGColor {
+        
+        let scanner = Scanner(string: components)
+        
+        // Define which characters to skip
+        let skipped = CharacterSet(charactersIn: "[], ")
+        
+        // Set the delimiter
+        let comma = CharacterSet(charactersIn: ",")
+        
+        scanner.charactersToBeSkipped = skipped
+        
+        var r, g, b, a: NSString?
+        
+        // Set the rgba variables
+        scanner.scanUpToCharacters(from: comma, into: &r)
+        scanner.scanUpToCharacters(from: comma, into: &g)
+        scanner.scanUpToCharacters(from: comma, into: &b)
+        scanner.scanUpToCharacters(from: comma, into: &a)
+        
+        // Set a default color in case one of the rgba variables fails when unwrapped
+        let defaultColor = CGColor(red: 0.69, green: 0.85, blue: 0.99, alpha: 1.0)
+        
+        // Unwrap the rgba variables
+        guard let rUnwrapped = r else { return defaultColor }
+        guard let gUnwrapped = g else { return defaultColor }
+        guard let bUnwrapped = b else { return defaultColor }
+        guard let aUnwrapped = a else { return defaultColor }
+        
+        // Convert the rgba values into floats
+        let rFloat = CGFloat(rUnwrapped.doubleValue)
+        let gFloat = CGFloat(gUnwrapped.doubleValue)
+        let bFloat = CGFloat(bUnwrapped.doubleValue)
+        let aFloat = CGFloat(aUnwrapped.doubleValue)
+        
+        // Create the CGColor
+        let newCGColor = CGColor(red: rFloat, green: gFloat, blue: bFloat, alpha: aFloat)
+        
+        return newCGColor
+    }
+    
     func logoutUser() {
         _id = ""
         _avatarName = ""
