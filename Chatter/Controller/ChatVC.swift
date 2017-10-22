@@ -20,6 +20,7 @@ class ChatVC: NSViewController {
     
     // Variables
     let user = UserDataService.instance
+    var channel: Channel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,16 @@ class ChatVC: NSViewController {
         
         // Customize the send message button
         sendMessageBtn.styleButtonText(button: sendMessageBtn, buttonName: "Send", fontColor: .darkGray, alignment: .center, font: AVENIR_REGULAR, size: 13.0)
+    }
+    
+    func updateWithChannel(channel: Channel) {
+        typingUsersLbl.stringValue = ""
+        self.channel = channel
+        let channelName = channel.channelTitle ?? ""
+        let channelDesc = channel.channelDescription ?? ""
+        
+        channelTitle.stringValue = "#\(channelName)"
+        channelDescription.stringValue = channelDesc
     }
     
     @IBAction func sendMessageBtnClicked(_ sender: Any) {

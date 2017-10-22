@@ -13,6 +13,11 @@ class ChannelVC: NSViewController {
     @IBOutlet weak var userNameLbl: NSTextField!
     @IBOutlet weak var addChannelBtn: NSButton!
     @IBOutlet weak var tableView: NSTableView!
+    
+    // Variables
+    var selectedChannelIndex = 0
+    var selectedChannel: Channel?
+    var chatVC: ChatVC?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,10 @@ class ChannelVC: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
     }
     
+    override func viewDidAppear() {
+        chatVC = self.view.window?.contentViewController?.childViewControllers[0].childViewControllers[1] as? ChatVC
+    }
+    
     func setUpView() {
         view.wantsLayer = true
         view.layer?.backgroundColor = chatPurple.cgColor
@@ -36,6 +45,7 @@ class ChannelVC: NSViewController {
         // Customize the add channel button
         addChannelBtn.styleButtonText(button: addChannelBtn, buttonName: "Add +", fontColor: .controlColor, alignment: .center, font: AVENIR_REGULAR, size: 13.0)
     }
+    
     
     @IBAction func addChannelBtnClicked(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
@@ -78,12 +88,21 @@ extension ChannelVC: NSTableViewDelegate, NSTableViewDataSource {
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "channelCell"), owner: nil) as? ChannelCell {
             
-            cell.configureCell(channel: channel)
+            cell.configureCell(channel: channel, selectedChannel: selectedChannelIndex, row: row)
             
             return cell
         }
         
         return NSTableCellView()
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        selectedChannelIndex = tableView.selectedRow
+        let channel = MessageService.instance.channels[selectedChannelIndex]
+        selectedChannel = channel
+        chatVC?.updateWithChannel(channel: channel)
+        
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
