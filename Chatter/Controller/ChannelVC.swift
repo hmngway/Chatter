@@ -16,6 +16,10 @@ class ChannelVC: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set the delegate & data source
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     override func viewWillAppear() {
@@ -23,12 +27,6 @@ class ChannelVC: NSViewController {
         
         // Notification observer for user login/logout
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
-        
-        MessageService.instance.findAllChannels { (success) in
-            for channel in MessageService.instance.channels {
-                print(channel.channelTitle)
-            }
-        }
     }
     
     func setUpView() {
@@ -49,13 +47,47 @@ class ChannelVC: NSViewController {
         }
     }
     
+    func getChannels() {
+        MessageService.instance.findAllChannels { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     // Called when the user logs in and logs out
     @objc func userDataDidChange(_ notif: Notification) {
         if AuthService.instance.isLoggedIn {
+            getChannels()
             userNameLbl.stringValue = UserDataService.instance.name
         } else {
             userNameLbl.stringValue = ""
         }
+    }
+    
+}
+
+extension ChannelVC: NSTableViewDelegate, NSTableViewDataSource {
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return MessageService.instance.channels.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let channel = MessageService.instance.channels[row]
+        
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "channelCell"), owner: nil) as? ChannelCell {
+            
+            cell.configureCell(channel: channel)
+            
+            return cell
+        }
+        
+        return NSTableCellView()
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 30.0
     }
     
 }

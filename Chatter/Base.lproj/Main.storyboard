@@ -800,7 +800,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YsL-5y-YhL">
-                                <rect key="frame" x="99" y="332" width="4" height="23"/>
+                                <rect key="frame" x="98" y="332" width="4" height="23"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="B63-qi-ePi">
                                     <font key="font" size="13" name="AvenirNext-Regular"/>
                                     <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -831,13 +831,13 @@
                                     <action selector="addChannelBtnClicked:" target="Alp-9Q-NkC" id="7Pq-sn-abp"/>
                                 </connections>
                             </button>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6j-lk-1GZ">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6j-lk-1GZ">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="284"/>
                                 <clipView key="contentView" id="JCe-jE-YtP">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="284"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="1aQ-Et-ss2">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" viewBased="YES" id="1aQ-Et-ss2">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="284"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -857,21 +857,24 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="oUR-i1-xf2">
-                                                            <rect key="frame" x="1" y="1" width="197" height="17"/>
+                                                        <tableCellView identifier="channelCell" id="oUR-i1-xf2" customClass="ChannelCell" customModule="Chatter" customModuleProvider="target">
+                                                            <rect key="frame" x="1" y="1" width="197" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3F-zJ-sMM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="F6h-mu-Qit">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="M3F-zJ-sMM" userLabel="Channel Name">
+                                                                    <rect key="frame" x="10" y="7" width="60" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="#channel" id="F6h-mu-Qit">
                                                                         <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="M3F-zJ-sMM" firstAttribute="centerY" secondItem="oUR-i1-xf2" secondAttribute="centerY" id="3v3-8y-Uev"/>
+                                                                <constraint firstItem="M3F-zJ-sMM" firstAttribute="leading" secondItem="oUR-i1-xf2" secondAttribute="leading" constant="12" id="pRK-Nf-e5M"/>
+                                                            </constraints>
                                                             <connections>
+                                                                <outlet property="channelName" destination="M3F-zJ-sMM" id="GqS-aY-Byu"/>
                                                                 <outlet property="textField" destination="M3F-zJ-sMM" id="VzO-22-5B0"/>
                                                             </connections>
                                                         </tableCellView>
