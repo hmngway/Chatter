@@ -37,7 +37,21 @@ class ChannelVC: NSViewController {
     }
     
     override func viewDidAppear() {
+        
         chatVC = self.view.window?.contentViewController?.childViewControllers[0].childViewControllers[1] as? ChatVC
+        
+        // Monitor for channels created by other users
+        SocketService.instance.getChannel { (success) in
+            
+            if success {
+                self.tableView.reloadData()
+                
+                // Select a channel by default so the user doesn't have to select one upon logging in
+                if MessageService.instance.channels.count > 0 {
+                    self.tableView.selectRowIndexes(IndexSet(integer: self.selectedChannelIndex), byExtendingSelection: false)
+                }
+            }
+        }
     }
     
     func setUpView() {
@@ -66,6 +80,11 @@ class ChannelVC: NSViewController {
         MessageService.instance.findAllChannels { (success) in
             if success {
                 self.tableView.reloadData()
+                
+                // Select a channel by default so the user doesn't have to select one upon logging in
+                if MessageService.instance.channels.count > 0 {
+                    self.tableView.selectRowIndexes(IndexSet(integer: self.selectedChannelIndex), byExtendingSelection: false)
+                }
             }
         }
     }

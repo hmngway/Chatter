@@ -953,7 +953,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="180"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" rowSizeStyle="automatic" viewBased="YES" id="7yw-vr-DMb">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" rowSizeStyle="automatic" viewBased="YES" id="7yw-vr-DMb">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1059,11 +1059,14 @@
                                 <subviews>
                                     <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-rI-kb5">
                                         <rect key="frame" x="6" y="6" width="373" height="62"/>
-                                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="Message" drawsBackground="YES" id="W3j-8W-c1Q">
+                                        <textFieldCell key="cell" selectable="YES" editable="YES" state="on" focusRingType="none" placeholderString="Message" drawsBackground="YES" id="W3j-8W-c1Q">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
+                                        <connections>
+                                            <action selector="messageEnterSent:" target="5Cr-LV-6UY" id="YK6-Mt-Yro"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>

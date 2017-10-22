@@ -94,6 +94,11 @@ class ChatVC: NSViewController {
         }
     }
     
+    @IBAction func messageEnterSent(_ sender: Any) {
+        sendMessageBtn.performClick(nil)
+    }
+    
+    
     // Called when the user logs in and logs out
     @objc func userDataDidChange(_ notif: Notification) {
         
