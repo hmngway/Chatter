@@ -16,6 +16,7 @@ class ModalAddChannel: NSView {
     @IBOutlet weak var createChannelBtn: NSButton!
     
     override init(frame frameRect: NSRect) {
+        
         super.init(frame: frameRect)
         Bundle.main.loadNibNamed(NSNib.Name(rawValue: "ModalAddChannel"), owner: self, topLevelObjects: nil)
         self.addSubview(self.view)
@@ -26,13 +27,16 @@ class ModalAddChannel: NSView {
     }
     
     override func draw(_ dirtyRect: NSRect) {
+        
         super.draw(dirtyRect)
         
         setUpView()
     }
     
     @IBAction func createChannelBtnClicked(_ sender: Any) {
+        
         SocketService.instance.addChannel(channelName: channelNameText.stringValue, channelDescription: channelDescriptionText.stringValue) { (success) in
+            
             if success {
                 NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)
             }
@@ -44,6 +48,7 @@ class ModalAddChannel: NSView {
     }
     
     func setUpView () {
+        
         self.view.frame = NSRect(x: 0, y: 0, width: 475, height: 300)
         view.layer?.backgroundColor = CGColor.white
         view.layer?.cornerRadius = 7

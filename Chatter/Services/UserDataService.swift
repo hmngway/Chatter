@@ -99,6 +99,7 @@ class UserDataService {
     }
     
     func logoutUser() {
+        
         _id = ""
         _avatarName = ""
         _avatarColor = ""

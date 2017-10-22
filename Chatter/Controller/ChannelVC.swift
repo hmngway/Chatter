@@ -20,6 +20,7 @@ class ChannelVC: NSViewController {
     var chatVC: ChatVC?
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Set the delegate & data source
@@ -28,6 +29,7 @@ class ChannelVC: NSViewController {
     }
     
     override func viewWillAppear() {
+        
         setUpView()
         
         // Notification observer for user login/logout
@@ -39,6 +41,7 @@ class ChannelVC: NSViewController {
     }
     
     func setUpView() {
+        
         view.wantsLayer = true
         view.layer?.backgroundColor = chatPurple.cgColor
         
@@ -48,6 +51,7 @@ class ChannelVC: NSViewController {
     
     
     @IBAction func addChannelBtnClicked(_ sender: Any) {
+        
         if AuthService.instance.isLoggedIn {
             let addChannelDict: [String: ModalType] = [USER_INFO_MODAL: ModalType.addChannel]
             NotificationCenter.default.post(name: NOTIF_PRESENT_MODAL, object: nil, userInfo: addChannelDict)
@@ -58,6 +62,7 @@ class ChannelVC: NSViewController {
     }
     
     func getChannels() {
+        
         MessageService.instance.findAllChannels { (success) in
             if success {
                 self.tableView.reloadData()
@@ -67,6 +72,7 @@ class ChannelVC: NSViewController {
     
     // Called when the user logs in and logs out
     @objc func userDataDidChange(_ notif: Notification) {
+        
         if AuthService.instance.isLoggedIn {
             getChannels()
             userNameLbl.stringValue = UserDataService.instance.name
@@ -84,6 +90,7 @@ extension ChannelVC: NSTableViewDelegate, NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        
         let channel = MessageService.instance.channels[row]
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "channelCell"), owner: nil) as? ChannelCell {
@@ -97,6 +104,7 @@ extension ChannelVC: NSTableViewDelegate, NSTableViewDataSource {
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
+        
         selectedChannelIndex = tableView.selectedRow
         let channel = MessageService.instance.channels[selectedChannelIndex]
         selectedChannel = channel

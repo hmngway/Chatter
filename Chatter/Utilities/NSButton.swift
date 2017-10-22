@@ -10,6 +10,7 @@ import Cocoa
 extension NSButton {
     
     func styleButtonText(button: NSButton, buttonName: String, fontColor: NSColor, alignment: NSTextAlignment, font: String, size: CGFloat) {
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment
         

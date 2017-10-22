@@ -27,6 +27,7 @@ class ModalCreateAccount: NSView, NSPopoverDelegate {
     let popover = NSPopover()
     
     override init(frame frameRect: NSRect) {
+        
         super.init(frame: frameRect)
         Bundle.main.loadNibNamed(NSNib.Name(rawValue: "ModalCreateAccount"), owner: self, topLevelObjects: nil)
         self.addSubview(self.view)
@@ -40,12 +41,14 @@ class ModalCreateAccount: NSView, NSPopoverDelegate {
     }
     
     override func draw(_ dirtyRect: NSRect) {
+        
         super.draw(dirtyRect)
         
         setUpView()
     }
     
     func popoverDidClose(_ notification: Notification) {
+        
         if UserDataService.instance.avatarName != "" {
             profileImage.image = NSImage(named: NSImage.Name(rawValue: UserDataService.instance.avatarName))
             avatarName = UserDataService.instance.avatarName
@@ -53,6 +56,7 @@ class ModalCreateAccount: NSView, NSPopoverDelegate {
     }
     
     @IBAction func colorPicked(_ sender: Any) {
+        
         profileImage.layer?.backgroundColor = colorWell.color.cgColor
         
         let color = colorWell.color.cgColor
@@ -68,6 +72,7 @@ class ModalCreateAccount: NSView, NSPopoverDelegate {
     }
     
     @IBAction func createAccountBtnClicked(_ sender: Any) {
+        
         // Show the progress spinner
         progressSpinner.isHidden = false
         progressSpinner.startAnimation(nil)
@@ -103,12 +108,14 @@ class ModalCreateAccount: NSView, NSPopoverDelegate {
     }
     
     @IBAction func chooseImageBtnClicked(_ sender: Any) {
+        
         popover.contentViewController = AvatarPickerVC(nibName: NSNib.Name(rawValue: "AvatarPickerVC"), bundle: nil)
         popover.show(relativeTo: chooseImageBtn.bounds, of: chooseImageBtn, preferredEdge: .minX)
         popover.behavior = .transient
     }
     
     func setUpView () {
+        
         self.view.frame = NSRect(x: 0, y: 0, width: 475, height: 300)
         view.layer?.backgroundColor = CGColor.white
         view.layer?.cornerRadius = 7

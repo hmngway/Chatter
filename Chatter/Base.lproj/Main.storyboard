@@ -947,13 +947,13 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTu-e6-IPM">
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="102" horizontalPageScroll="10" verticalLineScroll="102" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTu-e6-IPM">
                                 <rect key="frame" x="0.0" y="113" width="450" height="180"/>
                                 <clipView key="contentView" id="dHv-Dc-dPi">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="180"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="7yw-vr-DMb">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" rowSizeStyle="automatic" viewBased="YES" id="7yw-vr-DMb">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -973,22 +973,62 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="9Rk-er-aXU">
-                                                            <rect key="frame" x="1" y="1" width="447" height="17"/>
+                                                        <tableCellView identifier="chatCell" id="9Rk-er-aXU" userLabel="Chat Cell" customClass="ChatCell" customModule="Chatter" customModuleProvider="target">
+                                                            <rect key="frame" x="1" y="1" width="447" height="100"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccQ-bn-jKN">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="447" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="aDs-I0-rCV">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oeg-uW-uYc">
+                                                                    <rect key="frame" x="10" y="40" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="eUg-aw-92r"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="f9A-NZ-UkP"/>
+                                                                    </constraints>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="dark8" id="519-5U-xKe"/>
+                                                                </imageView>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dPS-Yf-0qT">
+                                                                    <rect key="frame" x="68" y="67" width="51" height="23"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="conway" id="Gwg-gT-YsK">
+                                                                        <font key="font" size="13" name="AvenirNext-DemiBold"/>
+                                                                        <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a4Z-TU-GD8">
+                                                                    <rect key="frame" x="121" y="67" width="93" height="19"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="October 22, 2017" id="hFK-Ul-aNk">
+                                                                        <font key="font" size="11" name="AvenirNext-Regular"/>
+                                                                        <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="7o8-Xa-F5w">
+                                                                    <rect key="frame" x="68" y="3" width="371" height="54"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="54" id="ZUx-kY-iTJ"/>
+                                                                    </constraints>
+                                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="ov1-GG-Y5K">
+                                                                        <font key="font" size="13" name="AvenirNext-Regular"/>
+                                                                        <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="dPS-Yf-0qT" firstAttribute="top" secondItem="9Rk-er-aXU" secondAttribute="top" constant="10" id="113-ZY-yfO"/>
+                                                                <constraint firstItem="dPS-Yf-0qT" firstAttribute="leading" secondItem="oeg-uW-uYc" secondAttribute="trailing" constant="10" id="2m6-wS-geN"/>
+                                                                <constraint firstItem="oeg-uW-uYc" firstAttribute="top" secondItem="9Rk-er-aXU" secondAttribute="top" constant="10" id="2vu-5W-VDW"/>
+                                                                <constraint firstAttribute="trailing" secondItem="7o8-Xa-F5w" secondAttribute="trailing" constant="10" id="8pt-dj-WR6"/>
+                                                                <constraint firstItem="a4Z-TU-GD8" firstAttribute="centerY" secondItem="dPS-Yf-0qT" secondAttribute="centerY" constant="2" id="RA4-Xl-Y00"/>
+                                                                <constraint firstItem="7o8-Xa-F5w" firstAttribute="top" secondItem="dPS-Yf-0qT" secondAttribute="bottom" constant="10" id="ahh-z8-7xY"/>
+                                                                <constraint firstItem="a4Z-TU-GD8" firstAttribute="leading" secondItem="dPS-Yf-0qT" secondAttribute="trailing" constant="6" id="lwd-Se-gMf"/>
+                                                                <constraint firstItem="7o8-Xa-F5w" firstAttribute="leading" secondItem="oeg-uW-uYc" secondAttribute="trailing" constant="10" id="rlp-7s-O2T"/>
+                                                                <constraint firstItem="oeg-uW-uYc" firstAttribute="leading" secondItem="9Rk-er-aXU" secondAttribute="leading" constant="10" id="tE1-gi-33a"/>
+                                                            </constraints>
                                                             <connections>
-                                                                <outlet property="textField" destination="ccQ-bn-jKN" id="jbF-kj-HDn"/>
+                                                                <outlet property="messageBodyLbl" destination="7o8-Xa-F5w" id="Xd9-3m-X6t"/>
+                                                                <outlet property="profileImage" destination="oeg-uW-uYc" id="cLz-PI-Mao"/>
+                                                                <outlet property="timestampLbl" destination="a4Z-TU-GD8" id="Hjp-pm-sgI"/>
+                                                                <outlet property="userNameLbl" destination="dPS-Yf-0qT" id="6ge-r3-SxN"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -1079,6 +1119,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dark8" width="100" height="100"/>
         <image name="profileDefault" width="100" height="100"/>
     </resources>
 </document>

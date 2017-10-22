@@ -21,6 +21,7 @@ class AnimalCell: NSCollectionViewItem {
     }
     
     func configureCell(index: Int, type: AnimalType) {
+        
         if type == AnimalType.dark {
             animalImage.image = NSImage(named: NSImage.Name(rawValue: "dark\(index)"))
             view.layer?.backgroundColor = NSColor.lightGray.cgColor
@@ -31,6 +32,7 @@ class AnimalCell: NSCollectionViewItem {
     }
     
     func setUpView() {
+        
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
         view.layer?.cornerRadius = 10
         view.layer?.borderWidth = 2

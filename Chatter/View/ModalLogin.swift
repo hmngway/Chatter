@@ -19,6 +19,7 @@ class ModalLogin: NSView {
     @IBOutlet weak var progressSpinner: NSProgressIndicator!
     
     override init(frame frameRect: NSRect) {
+        
         super.init(frame: frameRect)
         Bundle.main.loadNibNamed(NSNib.Name(rawValue: "ModalLogin"), owner: self, topLevelObjects: nil)
         self.addSubview(self.view)
@@ -29,6 +30,7 @@ class ModalLogin: NSView {
     }
     
     override func draw(_ dirtyRect: NSRect) {
+        
         super.draw(dirtyRect)
 
         setUpView()
@@ -44,6 +46,7 @@ class ModalLogin: NSView {
     
     
     @IBAction func emailLoginBtnClicked(_ sender: Any) {
+        
         //Show the progress spinner
         progressSpinner.isHidden = false
         progressSpinner.startAnimation(nil)
@@ -73,6 +76,7 @@ class ModalLogin: NSView {
     }
     
     @IBAction func createAccountBtnClicked(_ sender: Any) {
+        
         let closeImmediatelyDict: [String: Bool] = [USER_INFO_REMOVE_IMMEDIATELY: true]
         NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil, userInfo: closeImmediatelyDict)
         
@@ -81,6 +85,7 @@ class ModalLogin: NSView {
     }
     
     func setUpView () {
+        
         self.view.frame = NSRect(x: 0, y: 0, width: 475, height: 300)
         view.layer?.backgroundColor = CGColor.white
         view.layer?.cornerRadius = 7

@@ -17,6 +17,7 @@ class ChannelCell: NSTableCellView {
     }
     
     func configureCell(channel: Channel, selectedChannel: Int, row: Int) {
+        
         let title = channel.channelTitle ?? ""
         channelName.stringValue = "#\(title)"
         channelName.font = NSFont(name: AVENIR_REGULAR, size: 13.0)

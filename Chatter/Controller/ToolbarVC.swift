@@ -30,6 +30,7 @@ class ToolbarVC: NSViewController {
     }
     
     override func viewWillAppear() {
+        
         setUpView()
         
         if AuthService.instance.isLoggedIn {
@@ -60,6 +61,7 @@ class ToolbarVC: NSViewController {
     }
     
     @objc func openProfilePage(_ recognizer: NSClickGestureRecognizer) {
+        
         if AuthService.instance.isLoggedIn {
             let profileDict: [String: ModalType] = [USER_INFO_MODAL: ModalType.profile]
             NotificationCenter.default.post(name: NOTIF_PRESENT_MODAL, object: nil, userInfo: profileDict)
@@ -200,6 +202,7 @@ class ToolbarVC: NSViewController {
     
     // Called when the user logs in and logs out
     @objc func userDataDidChange(_ notif: Notification) {
+        
         if AuthService.instance.isLoggedIn {
             loginLbl.stringValue = UserDataService.instance.name
             loginImage.wantsLayer = true

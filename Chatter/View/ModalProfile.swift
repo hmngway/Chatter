@@ -17,6 +17,7 @@ class ModalProfile: NSView {
     @IBOutlet weak var logoutBtn: NSButton!
     
     override init(frame frameRect: NSRect) {
+        
         super.init(frame: frameRect)
         Bundle.main.loadNibNamed(NSNib.Name(rawValue: "ModalProfile"), owner: self, topLevelObjects: nil)
         self.addSubview(self.view)
@@ -27,12 +28,14 @@ class ModalProfile: NSView {
     }
     
     override func draw(_ dirtyRect: NSRect) {
+        
         super.draw(dirtyRect)
         
         setUpView()
     }
     
     @IBAction func logoutBtnClicked(_ sender: Any) {
+        
         UserDataService.instance.logoutUser()
         NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.post(name: NOTIF_CLOSE_MODAL, object: nil)
@@ -43,6 +46,7 @@ class ModalProfile: NSView {
     }
     
     func setUpView () {
+        
         self.view.frame = NSRect(x: 0, y: 0, width: 475, height: 300)
         view.layer?.backgroundColor = CGColor.white
         view.layer?.cornerRadius = 7

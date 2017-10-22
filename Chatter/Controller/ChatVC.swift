@@ -23,7 +23,12 @@ class ChatVC: NSViewController {
     var channel: Channel?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        // Set the delegate & data source
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     override func viewWillAppear() {
@@ -68,10 +73,7 @@ class ChatVC: NSViewController {
         guard let channelId = channel?.id else { return }
         
         MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
-            
-            for message in MessageService.instance.messages {
-                print(message.message)
-            }
+            self.tableView.reloadData()
         }
     }
     
@@ -102,6 +104,31 @@ class ChatVC: NSViewController {
             channelTitle.stringValue = "Please log in."
             channelDescription.stringValue = ""
         }
+    }
+    
+}
+
+extension ChatVC: NSTableViewDelegate, NSTableViewDataSource {
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return MessageService.instance.messages.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "chatCell"), owner: nil) as? ChatCell {
+            
+            let chat = MessageService.instance.messages[row]
+            cell.configureCell(chat: chat)
+            
+            return cell
+        }
+        
+        return NSTableCellView()
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 100.0
     }
     
 }

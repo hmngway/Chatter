@@ -37,6 +37,7 @@
 		B679AD8C1F92D0250068F5EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679AD8B1F92D0250068F5EF /* AuthService.swift */; };
 		B679AD8E1F92DB280068F5EF /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679AD8D1F92DB280068F5EF /* UserDataService.swift */; };
 		B6BBC4EE1F9D017300BD7143 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC4ED1F9D017300BD7143 /* Message.swift */; };
+		B6BBC4F01F9D0ABB00BD7143 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC4EF1F9D0ABB00BD7143 /* ChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		B679AD8B1F92D0250068F5EF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B679AD8D1F92DB280068F5EF /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		B6BBC4ED1F9D017300BD7143 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B6BBC4EF1F9D0ABB00BD7143 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		BA0F1E00E9EC8E28AA8F6BA6 /* Pods_Chatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -185,6 +187,7 @@
 				B6192AC41F991AFF008DC8D3 /* ModalAddChannel.swift */,
 				B65541EE1F9BE8D9002D27B3 /* AnimalCell.swift */,
 				B6258EE41F9C2C0100D52416 /* ChannelCell.swift */,
+				B6BBC4EF1F9D0ABB00BD7143 /* ChatCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				B6258EE51F9C2C0100D52416 /* ChannelCell.swift in Sources */,
 				B6718A531F90555100AD3793 /* ChannelVC.swift in Sources */,
 				B679AD8C1F92D0250068F5EF /* AuthService.swift in Sources */,
+				B6BBC4F01F9D0ABB00BD7143 /* ChatCell.swift in Sources */,
 				B679AD8E1F92DB280068F5EF /* UserDataService.swift in Sources */,
 				B6718A3E1F90539D00AD3793 /* AppDelegate.swift in Sources */,
 				B6582C321F9186B000FF2D80 /* ClickBlockingView.swift in Sources */,
