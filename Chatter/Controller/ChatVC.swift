@@ -27,6 +27,7 @@ class ChatVC: NSViewController {
     }
     
     override func viewWillAppear() {
+        
         setUpView()
         
         // Notification observer for user login/logout
@@ -34,6 +35,7 @@ class ChatVC: NSViewController {
     }
     
     func setUpView() {
+        
         view.wantsLayer = true
         view.layer?.backgroundColor = CGColor.white
         
@@ -49,6 +51,7 @@ class ChatVC: NSViewController {
     }
     
     func updateWithChannel(channel: Channel) {
+        
         typingUsersLbl.stringValue = ""
         self.channel = channel
         let channelName = channel.channelTitle ?? ""
@@ -56,12 +59,28 @@ class ChatVC: NSViewController {
         
         channelTitle.stringValue = "#\(channelName)"
         channelDescription.stringValue = channelDesc
+        
+        getChats()
+    }
+    
+    func getChats() {
+        
+        guard let channelId = channel?.id else { return }
+        
+        MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
+            
+            for message in MessageService.instance.messages {
+                print(message.message)
+            }
+        }
     }
     
     @IBAction func sendMessageBtnClicked(_ sender: Any) {
+        
         if AuthService.instance.isLoggedIn {
             // Send the message
-            let channelId = "592cd40e39179c0023f3531f"
+            guard let channelId = channel?.id else { return }
+            
             SocketService.instance.addMessage(messageBody: messageText.stringValue, userId: user.id, channelId: channelId, completion: { (success) in
                 if success {
                     self.messageText.stringValue = ""
@@ -75,6 +94,7 @@ class ChatVC: NSViewController {
     
     // Called when the user logs in and logs out
     @objc func userDataDidChange(_ notif: Notification) {
+        
         if AuthService.instance.isLoggedIn {
             channelTitle.stringValue = "#general"
             channelDescription.stringValue = "This is where we do the chats"
