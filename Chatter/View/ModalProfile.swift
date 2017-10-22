@@ -47,6 +47,10 @@ class ModalProfile: NSView {
         view.layer?.backgroundColor = CGColor.white
         view.layer?.cornerRadius = 7
         
+        // Set the username and e-mail fields
+        userNameText.stringValue = UserDataService.instance.name
+        emailText.stringValue = UserDataService.instance.email
+        
         // Set the profile image style
         profileImage.layer?.cornerRadius = 10
         profileImage.layer?.borderColor = NSColor.gray.cgColor

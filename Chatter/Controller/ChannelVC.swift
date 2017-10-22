@@ -23,6 +23,12 @@ class ChannelVC: NSViewController {
         
         // Notification observer for user login/logout
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        
+        MessageService.instance.findAllChannels { (success) in
+            for channel in MessageService.instance.channels {
+                print(channel.channelTitle)
+            }
+        }
     }
     
     func setUpView() {
