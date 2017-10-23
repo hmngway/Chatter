@@ -22,6 +22,13 @@ class ChannelCell: NSTableCellView {
         channelName.stringValue = "#\(title)"
         channelName.font = NSFont(name: AVENIR_REGULAR, size: 13.0)
         
+        for id in MessageService.instance.unreadChannels {
+            // Bold unread channels
+            if id == channel.id {
+                channelName.font = NSFont(name: AVENIR_BOLD, size: 13.0)
+            }
+        }
+        
         // Set the background color for the channels
         wantsLayer = true
         if row == selectedChannel {

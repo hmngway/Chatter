@@ -52,6 +52,15 @@ class ChannelVC: NSViewController {
                 }
             }
         }
+        
+        // Monitor for unread channels
+        SocketService.instance.getChatMessage { (newMessage) in
+            
+            if newMessage.channelId != self.selectedChannel?.id && AuthService.instance.isLoggedIn {
+                MessageService.instance.unreadChannels.append(newMessage.channelId)
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func setUpView() {
@@ -128,6 +137,12 @@ extension ChannelVC: NSTableViewDelegate, NSTableViewDataSource {
         selectedChannelIndex = tableView.selectedRow
         let channel = MessageService.instance.channels[selectedChannelIndex]
         selectedChannel = channel
+        
+        // Remove the bold styling from unread channels once they're read
+        if MessageService.instance.unreadChannels.count > 0 {
+            MessageService.instance.unreadChannels = MessageService.instance.unreadChannels.filter{$0 != channel.id}
+        }
+        
         chatVC?.updateWithChannel(channel: channel)
         
         tableView.reloadData()
