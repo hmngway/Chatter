@@ -30,6 +30,10 @@ class ChannelVC: NSViewController {
     
     override func viewWillAppear() {
         
+        if UserDataService.instance.isMinimizing == true {
+            return
+        }
+        
         setUpView()
         
         // Notification observer for user login/logout
@@ -37,6 +41,10 @@ class ChannelVC: NSViewController {
     }
     
     override func viewDidAppear() {
+        
+        if UserDataService.instance.isMinimizing == true {
+            return
+        }
         
         chatVC = self.view.window?.contentViewController?.childViewControllers[0].childViewControllers[1] as? ChatVC
         

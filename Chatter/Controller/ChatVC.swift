@@ -37,6 +37,10 @@ class ChatVC: NSViewController, NSTextFieldDelegate {
     
     override func viewWillAppear() {
         
+        if UserDataService.instance.isMinimizing == true {
+            return
+        }
+        
         setUpView()
         
         // Notification observer for user login/logout
