@@ -37,6 +37,19 @@ class ChatVC: NSViewController {
         
         // Notification observer for user login/logout
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        
+        // Listener for new message information
+        SocketService.instance.getChatMessage { (newMessage) in
+            
+            // Check to make sure the user is logged in & the message is in the current channel
+            if newMessage.channelId == self.channel?.id && AuthService.instance.isLoggedIn {
+                MessageService.instance.messages.append(newMessage)
+                self.tableView.reloadData()
+                
+                // Scroll to the bottom of the channel
+                self.tableView.scrollRowToVisible(MessageService.instance.messages.count - 1)
+            }
+        }
     }
     
     func setUpView() {
@@ -74,6 +87,9 @@ class ChatVC: NSViewController {
         
         MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
             self.tableView.reloadData()
+            
+            // Scroll to the bottom of the channel
+            self.tableView.scrollRowToVisible(MessageService.instance.messages.count - 1)
         }
     }
     
@@ -103,11 +119,15 @@ class ChatVC: NSViewController {
     @objc func userDataDidChange(_ notif: Notification) {
         
         if AuthService.instance.isLoggedIn {
-            channelTitle.stringValue = "#general"
-            channelDescription.stringValue = "This is where we do the chats"
+            // If a user logs in & no channels exist
+            if MessageService.instance.channels.count == 0 {
+                channelTitle.stringValue = "Create a channel and get chatting!"
+            }
         } else {
             channelTitle.stringValue = "Please log in."
             channelDescription.stringValue = ""
+            self.typingUsersLbl.stringValue = ""
+            self.tableView.reloadData()
         }
     }
     
